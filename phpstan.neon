@@ -1,0 +1,12 @@
+parameters:
+    checkMissingIterableValueType: false
+    level: 7
+    paths:
+        - src
+        - tests/
+
+    reportUnmatchedIgnoredErrors: false
+
+    ignoreErrors:
+        - '#Cannot access offset .size. on array.*#'
+        - '#Method Lmc\\Cqrs\\Base\\Query\\AbstractHttpQuery::assertHeaderFieldValue\(\) has parameter \$value with no typehint specified.#'
