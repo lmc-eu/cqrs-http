@@ -1,0 +1,64 @@
+{
+    "name": "lmc/cqrs-http",
+    "type": "library",
+    "description": "A library containing base implementations to help with Http Queries and Commands",
+    "license": "MIT",
+    "require": {
+        "php": "^7.4",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "fig/http-message-util": "^1.1",
+        "lmc/cqrs-types": "^1.0",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0",
+        "psr/http-message": "^1.0"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.5",
+        "guzzlehttp/psr7": "^1.8",
+        "lmc/coding-standard": "^3.0",
+        "nyholm/psr7": "^1.4",
+        "php-parallel-lint/php-parallel-lint": "^1.2",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan": "^0.12.83",
+        "phpstan/phpstan-phpunit": "^0.12.18",
+        "phpunit/phpunit": "^9.5"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Lmc\\Cqrs\\Http\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Lmc\\Cqrs\\Http\\": "tests/"
+        }
+    },
+    "scripts": {
+        "all": [
+            "@lint",
+            "@analyze",
+            "@tests"
+        ],
+        "analyze": [
+            "@cs",
+            "@phpstan"
+        ],
+        "cs": "vendor/bin/ecs check --ansi src/ tests/ ecs.php",
+        "fix": [
+            "vendor/bin/ecs check --ansi --clear-cache --fix src/ tests/ ecs.php",
+            "@composer normalize"
+        ],
+        "lint": [
+            "vendor/bin/parallel-lint -j 10 ./src ./tests",
+            "@composer validate",
+            "@composer normalize --dry-run"
+        ],
+        "phpstan": "vendor/bin/phpstan analyze -c phpstan.neon --ansi",
+        "tests": "vendor/bin/phpunit",
+        "tests-ci": "mkdir -p reports && php -dxdebug.coverage_enable=1 vendor/bin/phpunit -c phpunit.xml.dist"
+    }
+}
