@@ -26,7 +26,7 @@ class HttpMessageResponseDecoderTest extends AbstractHttpTestCase
     {
         $decoded = $this->decoder->decode($message);
 
-        $this->assertSame($isSupported, $this->decoder->supports($message));
+        $this->assertSame($isSupported, $this->decoder->supports($message, null));
         $this->assertEquals($expected, $decoded);
     }
 
