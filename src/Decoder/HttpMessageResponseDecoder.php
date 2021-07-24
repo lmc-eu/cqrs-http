@@ -11,7 +11,7 @@ use Psr\Http\Message\StreamInterface;
  */
 class HttpMessageResponseDecoder implements ResponseDecoderInterface
 {
-    public function supports($response): bool
+    public function supports($response, $initiator): bool
     {
         return $response instanceof MessageInterface;
     }
