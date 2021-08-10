@@ -10,7 +10,7 @@ use Psr\Http\Message\StreamInterface;
  */
 class StreamResponseDecoder implements ResponseDecoderInterface
 {
-    public function supports($response): bool
+    public function supports($response, $initiator): bool
     {
         return $response instanceof StreamInterface;
     }

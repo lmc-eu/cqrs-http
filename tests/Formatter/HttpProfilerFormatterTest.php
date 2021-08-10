@@ -69,6 +69,7 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                 'test',
                 '',
                 $request = (new \Nyholm\Psr7\Request('get', 'url'))
+                    ->withBody(\Nyholm\Psr7\Stream::create())
             ),
             new ProfilerItem(
                 'id',
@@ -251,6 +252,7 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                 'test',
                 '',
                 $request = (new \GuzzleHttp\Psr7\Request('post', 'url'))
+                    ->withBody(Utils::streamFor(null))
             ),
             new ProfilerItem(
                 'id',
