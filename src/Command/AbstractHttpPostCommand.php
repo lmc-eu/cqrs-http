@@ -15,7 +15,9 @@ abstract class AbstractHttpPostCommand extends AbstractHttpCommand
 
     public function createRequest(): RequestInterface
     {
-        return parent::createRequest()->withBody($this->createBody());
+        return ($request = parent::createRequest()->withBody($this->createBody())) instanceof RequestInterface
+            ? $request
+            : throw new \LogicException('Implementation of the RequestInterface->withBody(...) does not return a RequestInterface.');
     }
 
     abstract public function createBody(): StreamInterface;

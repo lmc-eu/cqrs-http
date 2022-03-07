@@ -6,8 +6,10 @@ parameters:
         - src
         - tests/
 
-    reportUnmatchedIgnoredErrors: false
+    reportUnmatchedIgnoredErrors: true
 
     ignoreErrors:
-        - '#Cannot access offset .size. on array.*#'
-        - '#Method Lmc\\Cqrs\\Base\\Query\\AbstractHttpQuery::assertHeaderFieldValue\(\) has parameter \$value with no typehint specified.#'
+        -
+            message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
+            count: 1
+            path: src/Command/AbstractHttpPostCommand.php
