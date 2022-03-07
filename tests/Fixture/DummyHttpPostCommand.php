@@ -8,13 +8,8 @@ use Psr\Http\Message\StreamInterface;
 
 class DummyHttpPostCommand extends AbstractHttpPostCommand
 {
-    private string $uri;
-    private StreamInterface $body;
-
-    public function __construct(string $uri, StreamInterface $body, RequestFactoryInterface $requestFactory)
+    public function __construct(private string $uri, private StreamInterface $body, RequestFactoryInterface $requestFactory)
     {
-        $this->uri = $uri;
-        $this->body = $body;
         parent::__construct($requestFactory);
     }
 

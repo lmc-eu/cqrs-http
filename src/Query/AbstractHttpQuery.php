@@ -13,11 +13,8 @@ use Psr\Http\Message\UriInterface;
  */
 abstract class AbstractHttpQuery implements QueryInterface, ProfileableInterface
 {
-    protected RequestFactoryInterface $requestFactory;
-
-    public function __construct(RequestFactoryInterface $requestFactory)
+    public function __construct(private RequestFactoryInterface $requestFactory)
     {
-        $this->requestFactory = $requestFactory;
     }
 
     final public function getRequestType(): string

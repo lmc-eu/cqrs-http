@@ -15,14 +15,10 @@ class StreamResponseDecoderTest extends AbstractHttpTestCase
     }
 
     /**
-     * @param mixed $message
-     * @param mixed $expected
-     *
      * @dataProvider provideMessage
-     *
      * @test
      */
-    public function shouldDecodeNyholmMessage($message, bool $isSupported, $expected): void
+    public function shouldDecodeNyholmMessage(mixed $message, bool $isSupported, mixed $expected): void
     {
         $decoded = $this->decoder->decode($message);
 

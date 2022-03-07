@@ -8,18 +8,20 @@ use Psr\Http\Message\ResponseInterface;
 
 class HttpBadRequestException extends \RuntimeException implements CqrsExceptionInterface
 {
-    private RequestInterface $request;
-    private ResponseInterface $response;
+    private static function createMessage(?string $reasonPhrase): string
+    {
+        return empty($reasonPhrase)
+            ? 'HTTP Bad Request'
+            : $reasonPhrase;
+    }
 
     public function __construct(
-        RequestInterface $request,
-        ResponseInterface $response,
+        private RequestInterface $request,
+        private ResponseInterface $response,
         int $code = 0,
         ?\Throwable $previous = null
     ) {
-        parent::__construct($response->getReasonPhrase() ?? 'HTTP Bad Request', $code, $previous);
-        $this->request = $request;
-        $this->response = $response;
+        parent::__construct(self::createMessage($response->getReasonPhrase()), $code, $previous);
     }
 
     public function getRequest(): RequestInterface

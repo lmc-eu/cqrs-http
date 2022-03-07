@@ -11,16 +11,15 @@ use Psr\Http\Message\StreamInterface;
  */
 class HttpMessageResponseDecoder implements ResponseDecoderInterface
 {
-    public function supports($response, $initiator): bool
+    public function supports(mixed $response, mixed $initiator): bool
     {
         return $response instanceof MessageInterface;
     }
 
     /**
-     * @param mixed $response
      * @return StreamInterface|MessageInterface
      */
-    public function decode($response)
+    public function decode(mixed $response): mixed
     {
         return $response instanceof MessageInterface
             ? $response->getBody()

@@ -14,11 +14,8 @@ use Psr\Http\Message\UriInterface;
  */
 abstract class AbstractHttpCommand implements CommandInterface, ProfileableInterface
 {
-    protected RequestFactoryInterface $requestFactory;
-
-    public function __construct(RequestFactoryInterface $requestFactory)
+    public function __construct(private RequestFactoryInterface $requestFactory)
     {
-        $this->requestFactory = $requestFactory;
     }
 
     final public function getRequestType(): string

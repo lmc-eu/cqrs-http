@@ -7,11 +7,8 @@ use Psr\Http\Message\RequestFactoryInterface;
 
 class DummyHttpGetQuery extends AbstractHttpGetQuery
 {
-    private string $uri;
-
-    public function __construct(string $uri, RequestFactoryInterface $requestFactory)
+    public function __construct(private string $uri, RequestFactoryInterface $requestFactory)
     {
-        $this->uri = $uri;
         parent::__construct($requestFactory);
     }
 
