@@ -35,8 +35,7 @@ abstract class AbstractHttpQuery implements QueryInterface, ProfileableInterface
     /** @see RequestMethodInterface */
     abstract public function getHttpMethod(): string;
 
-    /** @return UriInterface|string */
-    abstract public function getUri();
+    abstract public function getUri(): UriInterface|string;
 
     public function getProfilerId(): string
     {

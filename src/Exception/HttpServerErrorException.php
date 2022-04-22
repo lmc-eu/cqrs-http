@@ -19,7 +19,7 @@ class HttpServerErrorException extends \RuntimeException implements CqrsExceptio
         private RequestInterface $request,
         private ResponseInterface $response,
         int $code = 0,
-        ?\Throwable $previous = null
+        ?\Throwable $previous = null,
     ) {
         parent::__construct(self::createMessage($response->getReasonPhrase()), $code, $previous);
     }

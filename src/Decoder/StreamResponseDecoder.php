@@ -25,8 +25,7 @@ class StreamResponseDecoder implements ResponseDecoderInterface
             : $response;
     }
 
-    /** @return StreamInterface|string */
-    private function decodeStream(StreamInterface $stream)
+    private function decodeStream(StreamInterface $stream): StreamInterface|string
     {
         try {
             if (!empty($contents = $stream->getContents())) {

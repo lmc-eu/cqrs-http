@@ -45,7 +45,7 @@ class HttpSendCommandHandlerTest extends AbstractHttpTestCase
             new OnSuccessCallback(
                 fn (ResponseInterface $response) => $this->assertSame($responseData, $response->getBody()->getContents())
             ),
-            new OnErrorCallback(fn (\Throwable $error) => $this->fail($error->getMessage()))
+            new OnErrorCallback(fn (\Throwable $error) => $this->fail($error->getMessage())),
         );
     }
 
@@ -70,7 +70,7 @@ class HttpSendCommandHandlerTest extends AbstractHttpTestCase
             new OnSuccessCallback(
                 fn (ResponseInterface $response) => $this->assertSame($responseData, $response->getBody()->getContents())
             ),
-            new OnErrorCallback(fn (\Throwable $error) => $this->fail($error->getMessage()))
+            new OnErrorCallback(fn (\Throwable $error) => $this->fail($error->getMessage())),
         );
     }
 
@@ -101,7 +101,7 @@ class HttpSendCommandHandlerTest extends AbstractHttpTestCase
                     $this->assertSame($request, $error->getRequest());
                     $this->assertSame($response, $error->getResponse());
                 }
-            })
+            }),
         );
     }
 
@@ -132,7 +132,7 @@ class HttpSendCommandHandlerTest extends AbstractHttpTestCase
                     $this->assertSame($request, $error->getRequest());
                     $this->assertSame($response, $error->getResponse());
                 }
-            })
+            }),
         );
     }
 }

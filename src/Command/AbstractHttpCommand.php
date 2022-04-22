@@ -36,8 +36,7 @@ abstract class AbstractHttpCommand implements CommandInterface, ProfileableInter
     /** @see RequestMethodInterface */
     abstract public function getHttpMethod(): string;
 
-    /** @return UriInterface|string */
-    abstract public function getUri();
+    abstract public function getUri(): UriInterface|string;
 
     public function getProfilerId(): string
     {

@@ -8,7 +8,7 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "fig/http-message-util": "^1.1",
-        "lmc/cqrs-types": "dev-feature/require-php-81@dev",
+        "lmc/cqrs-types": "^3.0",
         "psr/http-client": "^1.0",
         "psr/http-factory": "^1.0",
         "psr/http-message": "^1.0"
@@ -16,7 +16,7 @@
     "require-dev": {
         "ergebnis/composer-normalize": "^2.5",
         "guzzlehttp/psr7": "^2.1",
-        "lmc/coding-standard": "^3.2",
+        "lmc/coding-standard": "^3.3",
         "nyholm/psr7": "^1.4",
         "php-parallel-lint/php-parallel-lint": "^1.2",
         "phpstan/extension-installer": "^1.1",
