@@ -17,11 +17,8 @@ use Psr\Http\Message\ResponseInterface;
  */
 class HttpQueryHandler extends AbstractQueryHandler
 {
-    private ClientInterface $client;
-
-    public function __construct(ClientInterface $client)
+    public function __construct(private ClientInterface $client)
     {
-        $this->client = $client;
     }
 
     /** @phpstan-param QueryInterface<mixed> $query */

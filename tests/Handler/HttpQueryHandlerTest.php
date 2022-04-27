@@ -41,7 +41,7 @@ class HttpQueryHandlerTest extends AbstractHttpTestCase
             new OnSuccessCallback(
                 fn (ResponseInterface $response) => $this->assertSame($data, $response->getBody()->getContents())
             ),
-            new OnErrorCallback(fn (\Throwable $error) => $this->fail($error->getMessage()))
+            new OnErrorCallback(fn (\Throwable $error) => $this->fail($error->getMessage())),
         );
     }
 
@@ -72,7 +72,7 @@ class HttpQueryHandlerTest extends AbstractHttpTestCase
                     $this->assertSame($request, $error->getRequest());
                     $this->assertSame($response, $error->getResponse());
                 }
-            })
+            }),
         );
     }
 
@@ -103,7 +103,7 @@ class HttpQueryHandlerTest extends AbstractHttpTestCase
                     $this->assertSame($request, $error->getRequest());
                     $this->assertSame($response, $error->getResponse());
                 }
-            })
+            }),
         );
     }
 }

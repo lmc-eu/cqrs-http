@@ -51,14 +51,14 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                 'test',
                 '',
                 $request = (new \Nyholm\Psr7\Request('get', 'url'))
-                    ->withBody(\Nyholm\Psr7\Stream::create('body'))
+                    ->withBody(\Nyholm\Psr7\Stream::create('body')),
             ),
             new ProfilerItem(
                 'id',
                 null,
                 'test',
                 '',
-                new FormattedValue($request, 'body')
+                new FormattedValue($request, 'body'),
             ),
         ];
 
@@ -69,14 +69,14 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                 'test',
                 '',
                 $request = (new \Nyholm\Psr7\Request('get', 'url'))
-                    ->withBody(\Nyholm\Psr7\Stream::create())
+                    ->withBody(\Nyholm\Psr7\Stream::create()),
             ),
             new ProfilerItem(
                 'id',
                 null,
                 'test',
                 '',
-                new FormattedValue($request, '')
+                new FormattedValue($request, ''),
             ),
         ];
 
@@ -86,14 +86,14 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                 null,
                 'test',
                 '',
-                $response = (new \Nyholm\Psr7\Response(200, [], 'body'))
+                $response = (new \Nyholm\Psr7\Response(200, [], 'body')),
             ),
             new ProfilerItem(
                 'id',
                 null,
                 'test',
                 '',
-                new FormattedValue($response, 'body')
+                new FormattedValue($response, 'body'),
             ),
         ];
 
@@ -103,14 +103,14 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                 null,
                 'test',
                 '',
-                $response = (new \Nyholm\Psr7\Response(200, [], \Nyholm\Psr7\Stream::create('body')))
+                $response = (new \Nyholm\Psr7\Response(200, [], \Nyholm\Psr7\Stream::create('body'))),
             ),
             new ProfilerItem(
                 'id',
                 null,
                 'test',
                 '',
-                new FormattedValue($response, 'body')
+                new FormattedValue($response, 'body'),
             ),
         ];
 
@@ -120,14 +120,14 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                 null,
                 'test',
                 '',
-                $stream = (\Nyholm\Psr7\Stream::create('body'))
+                $stream = (\Nyholm\Psr7\Stream::create('body')),
             ),
             new ProfilerItem(
                 'id',
                 null,
                 'test',
                 '',
-                new FormattedValue($stream, 'body')
+                new FormattedValue($stream, 'body'),
             ),
         ];
     }
@@ -141,14 +141,14 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                     'additional' => $request = (new \Nyholm\Psr7\Request('get', 'url'))
                         ->withBody(\Nyholm\Psr7\Stream::create('body')),
                 ],
-                'test'
+                'test',
             ),
             new ProfilerItem(
                 'id',
                 [
                     'additional' => new FormattedValue($request, 'body'),
                 ],
-                'test'
+                'test',
             ),
         ];
 
@@ -193,17 +193,17 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                     'additional' => $response = (new \Nyholm\Psr7\Response(
                         200,
                         [],
-                        \Nyholm\Psr7\Stream::create('body')
+                        \Nyholm\Psr7\Stream::create('body'),
                     )),
                 ],
-                'test'
+                'test',
             ),
             new ProfilerItem(
                 'id',
                 [
                     'additional' => new FormattedValue($response, 'body'),
                 ],
-                'test'
+                'test',
             ),
         ];
 
@@ -234,14 +234,14 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                 'test',
                 '',
                 $request = (new \GuzzleHttp\Psr7\Request('post', 'url'))
-                    ->withBody(Utils::streamFor('body'))
+                    ->withBody(Utils::streamFor('body')),
             ),
             new ProfilerItem(
                 'id',
                 null,
                 'test',
                 '',
-                new FormattedValue($request, 'body')
+                new FormattedValue($request, 'body'),
             ),
         ];
 
@@ -252,14 +252,14 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                 'test',
                 '',
                 $request = (new \GuzzleHttp\Psr7\Request('post', 'url'))
-                    ->withBody(Utils::streamFor(null))
+                    ->withBody(Utils::streamFor(null)),
             ),
             new ProfilerItem(
                 'id',
                 null,
                 'test',
                 '',
-                new FormattedValue($request, '')
+                new FormattedValue($request, ''),
             ),
         ];
 
@@ -269,14 +269,14 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                 null,
                 'test',
                 '',
-                $response = (new \GuzzleHttp\Psr7\Response(200, [], 'body'))
+                $response = (new \GuzzleHttp\Psr7\Response(200, [], 'body')),
             ),
             new ProfilerItem(
                 'id',
                 null,
                 'test',
                 '',
-                new FormattedValue($response, 'body')
+                new FormattedValue($response, 'body'),
             ),
         ];
 
@@ -286,14 +286,14 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                 null,
                 'test',
                 '',
-                $response = (new \GuzzleHttp\Psr7\Response(200, [], Utils::streamFor('body')))
+                $response = (new \GuzzleHttp\Psr7\Response(200, [], Utils::streamFor('body'))),
             ),
             new ProfilerItem(
                 'id',
                 null,
                 'test',
                 '',
-                new FormattedValue($response, 'body')
+                new FormattedValue($response, 'body'),
             ),
         ];
 
@@ -303,14 +303,14 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                 null,
                 'test',
                 '',
-                $stream = (Utils::streamFor('body'))
+                $stream = (Utils::streamFor('body')),
             ),
             new ProfilerItem(
                 'id',
                 null,
                 'test',
                 '',
-                new FormattedValue($stream, 'body')
+                new FormattedValue($stream, 'body'),
             ),
         ];
     }
@@ -331,7 +331,7 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                 [
                     'additional' => new FormattedValue($request, 'body'),
                 ],
-                'test'
+                'test',
             ),
         ];
 
@@ -348,7 +348,7 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                 [
                     'additional' => new FormattedValue($request, ''),
                 ],
-                'test'
+                'test',
             ),
         ];
 
@@ -392,14 +392,14 @@ class HttpProfilerFormatterTest extends AbstractHttpTestCase
                 null,
                 'test',
                 '',
-                $stream = (Utils::streamFor('body'))
+                $stream = (Utils::streamFor('body')),
             ),
             new ProfilerItem(
                 'id',
                 null,
                 'test',
                 '',
-                new FormattedValue($stream, 'body')
+                new FormattedValue($stream, 'body'),
             ),
         ];
     }

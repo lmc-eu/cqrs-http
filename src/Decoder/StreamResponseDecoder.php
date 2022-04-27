@@ -10,24 +10,22 @@ use Psr\Http\Message\StreamInterface;
  */
 class StreamResponseDecoder implements ResponseDecoderInterface
 {
-    public function supports($response, $initiator): bool
+    public function supports(mixed $response, mixed $initiator): bool
     {
         return $response instanceof StreamInterface;
     }
 
     /**
-     * @param mixed $response
      * @return StreamInterface|string
      */
-    public function decode($response)
+    public function decode(mixed $response): mixed
     {
         return $response instanceof StreamInterface
             ? $this->decodeStream($response)
             : $response;
     }
 
-    /** @return StreamInterface|string */
-    private function decodeStream(StreamInterface $stream)
+    private function decodeStream(StreamInterface $stream): StreamInterface|string
     {
         try {
             if (!empty($contents = $stream->getContents())) {

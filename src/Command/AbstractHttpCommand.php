@@ -14,11 +14,8 @@ use Psr\Http\Message\UriInterface;
  */
 abstract class AbstractHttpCommand implements CommandInterface, ProfileableInterface
 {
-    protected RequestFactoryInterface $requestFactory;
-
-    public function __construct(RequestFactoryInterface $requestFactory)
+    public function __construct(private RequestFactoryInterface $requestFactory)
     {
-        $this->requestFactory = $requestFactory;
     }
 
     final public function getRequestType(): string
@@ -39,8 +36,7 @@ abstract class AbstractHttpCommand implements CommandInterface, ProfileableInter
     /** @see RequestMethodInterface */
     abstract public function getHttpMethod(): string;
 
-    /** @return UriInterface|string */
-    abstract public function getUri();
+    abstract public function getUri(): UriInterface|string;
 
     public function getProfilerId(): string
     {

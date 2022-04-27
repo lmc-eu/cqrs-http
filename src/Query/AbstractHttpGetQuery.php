@@ -24,7 +24,7 @@ abstract class AbstractHttpGetQuery extends AbstractHttpQuery implements Cacheab
         return new CacheKey(sprintf(
             '%s:%s',
             static::class,
-            $this->getUri()
+            $this->getUri(),
         ));
     }
 }
